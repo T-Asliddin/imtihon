@@ -1,28 +1,23 @@
+import PropTypes from "prop-types";
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { Outlet ,NavLink } from 'react-router-dom';
-import { useLocation } from "react-router-dom";
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import AppleIcon from '@mui/icons-material/Apple';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
+import routes from "@routes";
 
 const drawerWidth = 240;
-
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -32,12 +27,10 @@ function ResponsiveDrawer(props) {
     setIsClosing(true);
     setMobileOpen(false);
   };
-
   const handleDrawerTransitionEnd = () => {
     setIsClosing(false);
   };
-
-  const handleDrawerToggle = () => {
+ const handleDrawerToggle = () => {
     if (!isClosing) {
       setMobileOpen(!mobileOpen);
     }
@@ -48,10 +41,7 @@ function ResponsiveDrawer(props) {
       <Toolbar />
       <Divider />
       <List>
-        {[
-          { path: "/", content: "TaskOne" ,icon:<DirectionsCarIcon/> },
-          { path: "/tasktwo", content: "TaskTwo" ,icon:<AppleIcon/> },
-        ].map((item, index) => (
+        {routes.map((item, index) => (
           <NavLink
             key={index}
             className={
@@ -64,7 +54,9 @@ function ResponsiveDrawer(props) {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <span className={item.path==pathname ?"text-white":"" }>{item.icon}</span>
+                  <span className={item.path == pathname ? "text-white" : ""}>
+                    {item.icon}
+                  </span>
                 </ListItemIcon>
                 <ListItemText primary={item.content} />
               </ListItemButton>
@@ -75,12 +67,11 @@ function ResponsiveDrawer(props) {
       <Divider />
     </div>
   );
-
-  // Remove this const when copying and pasting into your project.
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -95,7 +86,7 @@ function ResponsiveDrawer(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -120,8 +111,11 @@ function ResponsiveDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -129,8 +123,11 @@ function ResponsiveDrawer(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
           open
         >
@@ -139,22 +136,22 @@ function ResponsiveDrawer(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
       >
         <Toolbar />
-        <Outlet/>
-        <Typography paragraph>
-        </Typography>
-        <Typography paragraph>
-
-        </Typography>
+        <Outlet />
+        <Typography paragraph></Typography>
+        <Typography paragraph></Typography>
       </Box>
     </Box>
   );
 }
 
 ResponsiveDrawer.propTypes = {
-
   window: PropTypes.func,
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./singlpage.css";
+import "./index.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

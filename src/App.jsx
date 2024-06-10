@@ -1,13 +1,12 @@
+import React from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
 } from "react-router-dom";
-import ResponsiveDrawer from "./componenets/ResponsiveDrawer";
-import TaskOne from "./page/task-one/TaskOne";
-import TaskTwo from "./page/task-two/TaskTwo";
-import SinglPage from "./componenets/singl-page/SinglPage";
+import { TaskOne,TaskTwo ,SinglPage } from "./page";
+import { ResponsiveDrawer } from "./componenets";
 
 
 

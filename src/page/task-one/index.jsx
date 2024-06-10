@@ -1,4 +1,3 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,19 +5,19 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./taskone.css";
+import "./index.css";
 import { NavLink } from "react-router-dom";
-const TaskOne = () => {
+
+
+const Index = () => {
   const [user, setUser] = useState([]);
   const [limt ,setLimt] =useState()
-
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products?limit=${limt}`).then((response) => {
       setUser(response.data);
     });
   }, [limt]);
 
- console.log(limt);
   return (
     <>
       <div className="container">
@@ -70,4 +69,4 @@ const TaskOne = () => {
   );
 };
 
-export default TaskOne;
+export default Index;
