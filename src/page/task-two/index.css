@@ -1,26 +1,7 @@
-.open_box {
-  width: 280px;
-  box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-
-.roww {
-  display: flex;
-  justify-content: center;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.titl {
-  text-align: center;
-}
-
-.tasktwo {
-  display: flex;
-  justify-content: space-between;
+.boox{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 100px;
+    column-gap: 100px;
 }

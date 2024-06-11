@@ -48,7 +48,7 @@ const Index = () => {
                       {item.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {item.category}
+                      {item.price } $
                     </Typography>
                   </CardContent>
                 </CardActionArea>

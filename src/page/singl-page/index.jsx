@@ -49,7 +49,7 @@ const SinglPage = () => {
                       +
                     </button>
                   </div>
-                  <p className="prise">Prise : {item.price}</p>
+                  <p className="prise">Prise : {item.price} $</p>
 
                   <div className="btn_box2">
                     <button className="btn1"> Add to Cart</button>

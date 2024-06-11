@@ -7,8 +7,8 @@ export default defineConfig({
   resolve:{
     alias:[
       {find:"@", replacement:"/src/*" },
-      {find:"@routes", replacement:"/src/router/routes.jsx" }
-
+      {find:"@routes", replacement:"/src/router/routes.jsx" },
+      {find:"@modal", replacement:"/src/componenets/modal/Modal.jsx" }
     ]
   }
 })
